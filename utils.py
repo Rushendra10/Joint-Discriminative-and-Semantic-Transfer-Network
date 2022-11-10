@@ -42,7 +42,7 @@ def load_pretrain_npy():
     return new_dict
 
 def load_pth_model():
-    model_path = '../model/alexnet.pth.tar'
+    model_path = './alexnet.pth.tar'
     pretrained_model = torch.load(model_path)
     return pretrained_model['state_dict']
 

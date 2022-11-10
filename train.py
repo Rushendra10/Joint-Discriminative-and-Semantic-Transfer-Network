@@ -50,13 +50,13 @@ s_name = dataset_names[args.s]
 t_name = dataset_names[args.t]
 s_list_path = './data_list/' + s_name + '_list.txt'
 t_list_path = './data_list/' + t_name + '_list.txt'
-s_folder_path = '../../dataset/office/' + s_name + '/images'
-t_folder_path = '../../dataset/office/' + t_name + '/images'
+# s_folder_path = '../../dataset/office/' + s_name + '/images'
+# t_folder_path = '../../dataset/office/' + t_name + '/images'
 n_class = 31
-log_name = '_'.join(str(a) for a in [s_name, t_name, str(batch_size), str(da), str(init_lr)])
-log = open('log/' + log_name + '.log', 'w')
+# log_name = '_'.join(str(a) for a in [s_name, t_name, str(batch_size), str(da), str(init_lr)])
+# log = open('log/' + log_name + '.log', 'w')
 pretrain_path = 'checkpoint/' + resume + '.pth'
-checkpoint_save_path = 'checkpoint/' + log_name + '.pth'
+# checkpoint_save_path = 'checkpoint/' + log_name + '.pth'
 print('GPU: {}'.format(args.gpu))
 print('source: {}, target: {}, batch_size: {}, init_lr: {}'.format(s_name, t_name, batch_size, init_lr))
 print('lr_mult: {}, lr_mult_D: {}, resume: {}, da: {}'.format(lr_mult, lr_mult_D, resume, da))
@@ -69,6 +69,8 @@ val_loader = torch.utils.data.DataLoader(dataset.Office(t_list_path, training=Fa
                                          batch_size=1, num_workers=8)
 
 s_loader_len, t_loader_len = len(s_loader), len(t_loader)
+
+print("My own line " + str(s_loader_len))
 
 model = AlexNet(cudable=cuda, n_class=n_class)
 if cuda:
@@ -173,6 +175,6 @@ for epoch in range(epoch, 100000):
             'model': model.state_dict(),
             'opt': opt.state_dict(),
             'opt_D': opt_D.state_dict()
-        }, checkpoint_save_path)
+        })
 
     epoch += 1

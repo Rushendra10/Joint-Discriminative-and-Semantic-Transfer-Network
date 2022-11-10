@@ -112,6 +112,10 @@ class AlexNet(nn.Module):
         s_n_classes = zeros.scatter_add(0, s_labels, ones)
         t_n_classes = zeros.scatter_add(0, t_labels, ones)
 
+
+        ###see
+
+        
         # image number cannot be 0, when calculating centroids
         ones = torch.ones_like(s_n_classes)
         s_n_classes = torch.max(s_n_classes, ones)
