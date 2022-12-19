@@ -137,13 +137,11 @@ for epoch in range(epoch, 10000):
 
         discr_loss_param = 0.03
 
-        #print(C_loss.dtype)
+        target_loss_param = 0.03
 
-        #print(semantic_loss.dtype)
+        entropy = model.target_entropy(t_pred)
 
-        #print(Discr_loss.dtype)
-
-        F_loss = C_loss + (Gregloss + lamb * G_loss) + (lamb * semantic_loss) + (discr_loss_param * Discr_loss)
+        F_loss = C_loss + (Gregloss + lamb * G_loss) + (lamb * semantic_loss) + (discr_loss_param * Discr_loss) + (target_loss_param * entropy)
         D_loss = D_loss + Dregloss
 
         opt_D.zero_grad()

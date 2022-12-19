@@ -101,50 +101,6 @@ class AlexNet(nn.Module):
         C_loss = self.CEloss(y_pred, y)
         return C_loss
 
-    def DiscrimLoss(self, s_feature, y_s, batch_size):
-
-        
-
-        A = y_s
-
-        A = A.expand(batch_size, batch_size)
-
-        B = torch.transpose(A, 0, 1)
-
-
-        # W = tf.math.logical_not(tf.math.logical_xor(tf.convert_to_tensor(A), tf.convert_to_tensor(B)))
-
-        W = torch.zeros([batch_size, batch_size])
-
-        for i in range(0, batch_size):
-            for j in range(0, batch_size):
-                if (A[i][j]==B[i][j]):
-                    W[i][j]=1
-                else:
-                    W[i][j]=0
-
-        Xs = s_feature
-
-        norm = lambda x: torch.sum(torch.from_numpy(np.square(x.cpu().detach().numpy())), 1)
-
-        F0 = torch.transpose(norm(torch.unsqueeze(Xs, 2) - torch.transpose(Xs, 0, 1)), 0, 1)
-
-        margin0 = 0
-        margin1 = 100
-
-        z = torch.zeros(F0.size())
-		
-        F0=torch.pow(torch.max(z, F0-margin0),2)
-
-        z = torch.zeros(F0.size())
-        F1=torch.pow(torch.max(z, margin1-F0),2)
-        intra_loss=torch.mean(torch.mul(F0, W))
-        inter_loss=torch.mean(torch.mul(F1, 1.0-W))
-        discriminative_loss = (intra_loss+inter_loss) / (batch_size * batch_size)
-
-        return discriminative_loss
-        
-
 
         
     def DiscrimLoss_optimized(self, s_feature, y_s, batch_size):
@@ -184,6 +140,12 @@ class AlexNet(nn.Module):
         #print(discriminative_loss.dtype)
         res = np.array(discriminative_loss.eval(session=tf.Session()), dtype=np.float32)
         return torch.Tensor(res)
+
+    def target_entropy(t_pred):
+
+        target_loss=-torch.mean(torch.sum(t_pred * tf.log(t_pred)))
+        return target_loss
+        
         
     def adloss(self, s_logits, t_logits, s_feature, t_feature, y_s, y_t):
         n, d = s_feature.shape
