@@ -1,4 +1,3 @@
-from __future__ import print_function
 import itertools
 from itertools import chain
 import torch
@@ -6,7 +5,6 @@ import torch.nn as nn
 import utils
 from utils import LRN
 import tensorflow as tf
-import numpy as np
 
 class AlexNet(nn.Module):
 
@@ -54,6 +52,7 @@ class AlexNet(nn.Module):
             nn.Linear(256, self.n_class)
         )
         self.softmax = nn.Softmax(dim=0)
+
         self.D = nn.Sequential(
             nn.Linear(256, 1024),
             nn.ReLU(inplace=True),
@@ -63,9 +62,12 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(1024, 1)
         )
+
         self.init()
 
     def init(self):
+
+        # print(self.fc8[0])
         self.init_linear(self.fc8[0])
         self.init_linear(self.fc9[0], std=0.005)
         self.init_linear(self.D[0],D=True)
@@ -83,6 +85,7 @@ class AlexNet(nn.Module):
             m.bias.data.fill_(0)
         else:
             m.bias.data.fill_(0.1)
+            # print(m)
 
     def forward(self, x, training=True):
         conv_out = self.features(x)
@@ -101,93 +104,10 @@ class AlexNet(nn.Module):
         C_loss = self.CEloss(y_pred, y)
         return C_loss
 
-    def DiscrimLoss(self, s_feature, y_s, batch_size):
-
-        
-
-        A = y_s
-
-        A = A.expand(batch_size, batch_size)
-
-        B = torch.transpose(A, 0, 1)
-
-
-        # W = tf.math.logical_not(tf.math.logical_xor(tf.convert_to_tensor(A), tf.convert_to_tensor(B)))
-
-        W = torch.zeros([batch_size, batch_size])
-
-        for i in range(0, batch_size):
-            for j in range(0, batch_size):
-                if (A[i][j]==B[i][j]):
-                    W[i][j]=1
-                else:
-                    W[i][j]=0
-
-        Xs = s_feature
-
-        norm = lambda x: torch.sum(torch.from_numpy(np.square(x.cpu().detach().numpy())), 1)
-
-        F0 = torch.transpose(norm(torch.unsqueeze(Xs, 2) - torch.transpose(Xs, 0, 1)), 0, 1)
-
-        margin0 = 0
-        margin1 = 100
-
-        z = torch.zeros(F0.size())
-		
-        F0=torch.pow(torch.max(z, F0-margin0),2)
-
-        z = torch.zeros(F0.size())
-        F1=torch.pow(torch.max(z, margin1-F0),2)
-        intra_loss=torch.mean(torch.mul(F0, W))
-        inter_loss=torch.mean(torch.mul(F1, 1.0-W))
-        discriminative_loss = (intra_loss+inter_loss) / (batch_size * batch_size)
-
-        return discriminative_loss
-        
-
-
-        
-    def DiscrimLoss_optimized(self, s_feature, y_s, batch_size):
-
-        Xs = tf.convert_to_tensor(s_feature.cpu().detach().numpy())
-
-        A = y_s.cpu()
-
-        A = A.expand(batch_size, batch_size)
-
-        B = torch.transpose(A, 0, 1)
-
-        W = torch.logical_xor(A, B)
-
-        W = torch.logical_not(W)
-
-        W = tf.convert_to_tensor(W.numpy())
-
-        norm = lambda x: tf.reduce_sum(tf.square(x), 1)
-        F0 = tf.transpose(norm(tf.expand_dims(Xs, 2) - tf.transpose(Xs)))  #calculate pair-wise distance of Xs
-        margin0 = 0
-        margin1 = 100
-        F0=tf.pow(tf.maximum(0.0, F0-margin0),2)
-        F1=tf.pow(tf.maximum(0.0, margin1-F0),2)
-
-        #print(F0)
-        #print(F1.eval(session=tf.Session())) 
-        #print(F1.eval())
-        intra_loss=tf.reduce_mean(tf.multiply(F0, tf.cast(W, tf.float32)))
-        #print(intra_loss.shape)
-        inter_loss=tf.reduce_mean(tf.multiply(F1, 1.0-tf.cast(W, tf.float32)))
-        discriminative_loss = (intra_loss+inter_loss) / (batch_size * batch_size)
-
-        #return tf.cast(discriminative_loss, tf.float64)
-
-        #print(discriminative_loss.eval(session=tf.Session()))
-        #print(discriminative_loss.dtype)
-        res = np.array(discriminative_loss.eval(session=tf.Session()), dtype=np.float32)
-        return torch.Tensor(res)
-        
     def adloss(self, s_logits, t_logits, s_feature, t_feature, y_s, y_t):
         n, d = s_feature.shape
 
+   
         # get labels
         s_labels, t_labels = y_s, torch.max(y_t, 1)[1]
 
@@ -196,20 +116,24 @@ class AlexNet(nn.Module):
         zeros = torch.zeros(self.n_class)
         if self.cudable:
             zeros = zeros.cuda()
+
+
         s_n_classes = zeros.scatter_add(0, s_labels, ones)
         t_n_classes = zeros.scatter_add(0, t_labels, ones)
 
 
-        ###see
 
-        
         # image number cannot be 0, when calculating centroids
         ones = torch.ones_like(s_n_classes)
         s_n_classes = torch.max(s_n_classes, ones)
         t_n_classes = torch.max(t_n_classes, ones)
 
+
         # calculating centroids, sum and divide
         zeros = torch.zeros(self.n_class, d)
+
+
+
         if self.cudable:
             zeros = zeros.cuda()
         s_sum_feature = zeros.scatter_add(0, torch.transpose(s_labels.repeat(d, 1), 1, 0), s_feature)
@@ -217,13 +141,19 @@ class AlexNet(nn.Module):
         current_s_centroid = torch.div(s_sum_feature, s_n_classes.view(self.n_class, 1))
         current_t_centroid = torch.div(t_sum_feature, t_n_classes.view(self.n_class, 1))
 
+
+
         # Moving Centroid
         decay = self.decay
         s_centroid = (1-decay) * self.s_centroid + decay * current_s_centroid
         t_centroid = (1-decay) * self.t_centroid + decay * current_t_centroid
+
         semantic_loss = self.MSEloss(s_centroid, t_centroid)
+        
         self.s_centroid = s_centroid.detach()
         self.t_centroid = t_centroid.detach()
+
+      
 
         # sigmoid binary cross entropy with reduce mean
         D_real_loss = self.BCEloss(t_logits, torch.ones_like(t_logits))
@@ -233,7 +163,33 @@ class AlexNet(nn.Module):
 
         return G_loss, D_loss, semantic_loss
 
-   
+    def DiscrimLoss(self, s_feature, y_s, batch_size):
+
+        Xs = tf.convert_to_tensor(s_feature)
+
+        A = A.expand(batch_size, batch_size)
+
+        B = torch.transpose(A, 0, 1)
+
+        W = torch.logical_xor(A, B)
+
+        W = torch.logical_not(W)
+
+        W = tf.convert_to_tensor(W)
+
+        norm = lambda x: tf.reduce_sum(tf.square(x), 1)
+        F0 = tf.transpose(norm(tf.expand_dims(Xs, 2) - tf.transpose(Xs)))  #calculate pair-wise distance of Xs
+        margin0 = 0
+        margin1 = 100
+        F0=tf.pow(tf.maximum(0.0, F0-margin0),2)
+        F1=tf.pow(tf.maximum(0.0, margin1-F0),2)
+        intra_loss=tf.reduce_mean(tf.multiply(F0, W))
+        inter_loss=tf.reduce_mean(tf.multiply(F1, 1.0-W))
+        discriminative_loss = (intra_loss+inter_loss) / (batch_size * batch_size)
+
+        return discriminative_loss
+
+
 
     # To some extent, can be replaced by weight_decay param in optimizer.
     def regloss(self):
@@ -273,3 +229,8 @@ class AlexNet(nn.Module):
                                 lr=init_lr,momentum=0.9)
 
         return opt, opt_D
+
+model = AlexNet(cudable=False, n_class=31)
+
+
+

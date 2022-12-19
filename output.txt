@@ -1,0 +1,419 @@
+GPU: 1
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2], resume: , da: 1
+My own line 28
+    =======    START TRAINING    =======    
+epoch: 0, lr: 0.01, lambda: 0.0
+correct: 3.0, C_loss: 3.43470978737, G_loss:-0.144215300679, D_loss:0.158649027348, Gregloss: 0.0658228769898, Dregloss: 0.0144337220117, semantic_loss: 0.0871329754591, F_loss: 3.50053262711
+Avg accuracy till now is 0.03
+
+
+epoch: 10, lr: 0.00992565029024, lambda: 0.00499995833375
+correct: 34.0, C_loss: 2.99462652206, G_loss:-0.130417689681, D_loss:0.144849285483, Gregloss: 0.0658321082592, Dregloss: 0.0144315939397, semantic_loss: 0.226361706853, F_loss: 3.06093835831
+Avg accuracy till now is 0.34
+
+
+epoch: 20, lr: 0.00985257776052, lambda: 0.00999966668
+correct: 59.0, C_loss: 1.55845606327, G_loss:-0.119211249053, D_loss:0.133642077446, Gregloss: 0.0659038797021, Dregloss: 0.0144308237359, semantic_loss: 0.675971984863, F_loss: 1.62992739677
+Avg accuracy till now is 0.59
+
+
+epoch: 30, lr: 0.00978074826969, lambda: 0.0149988751012
+correct: 67.0, C_loss: 1.12008404732, G_loss:-0.111115790904, D_loss:0.125546127558, Gregloss: 0.0660009533167, Dregloss: 0.0144303441048, semantic_loss: 1.39463925362, F_loss: 1.20533633232
+Avg accuracy till now is 0.67
+
+
+epoch: 40, lr: 0.00971012890912, lambda: 0.0199973337599
+correct: 66.0, C_loss: 1.11350643635, G_loss:-0.111093118787, D_loss:0.125524446368, Gregloss: 0.0660761222243, Dregloss: 0.0144313210621, semantic_loss: 0.848625719547, F_loss: 1.19433128834
+Avg accuracy till now is 0.66
+
+
+epoch: 50, lr: 0.00964068794694, lambda: 0.0249947929684
+correct: 64.0, C_loss: 1.11721110344, G_loss:-0.102839641273, D_loss:0.117273494601, Gregloss: 0.0661402642727, Dregloss: 0.0144338533282, semantic_loss: 0.70855230093, F_loss: 1.19849097729
+Avg accuracy till now is 0.64
+
+
+epoch: 60, lr: 0.00957239477518, lambda: 0.0299910032388
+correct: 81.0, C_loss: 0.72220492363, G_loss:-0.0921044945717, D_loss:0.106540702283, Gregloss: 0.0661922767758, Dregloss: 0.0144362058491, semantic_loss: 0.853892207146, F_loss: 0.811243951321
+Avg accuracy till now is 0.81
+
+
+epoch: 70, lr: 0.00950521985983, lambda: 0.0349857153328
+correct: 75.0, C_loss: 0.750669538975, G_loss:-0.102709963918, D_loss:0.117147579789, Gregloss: 0.0662383362651, Dregloss: 0.0144376186654, semantic_loss: 0.790494441986, F_loss: 0.840970516205
+Avg accuracy till now is 0.75
+
+
+epoch: 80, lr: 0.0094391346936, lambda: 0.0399786803112
+correct: 80.0, C_loss: 0.603143215179, G_loss:-0.0846850946546, D_loss:0.0991239994764, Gregloss: 0.0662767142057, Dregloss: 0.0144389038906, semantic_loss: 0.798958659172, F_loss: 0.697975635529
+Avg accuracy till now is 0.8
+
+
+epoch: 90, lr: 0.00937411175105, lambda: 0.0449696495836
+correct: 89.0, C_loss: 0.413507759571, G_loss:-0.100667312741, D_loss:0.115107178688, Gregloss: 0.066310942173, Dregloss: 0.0144398687407, semantic_loss: 0.881011962891, F_loss: 0.514910519123
+Avg accuracy till now is 0.89
+
+
+epoch: 100, lr: 0.00931012444622, lambda: 0.0499583749579
+correct: 79.0, C_loss: 0.73620223999, G_loss:-0.0994135141373, D_loss:0.113852784038, Gregloss: 0.0663483291864, Dregloss: 0.014439266175, semantic_loss: 0.881492972374, F_loss: 0.841621935368
+Avg accuracy till now is 0.79
+
+
+    =======    START VALIDATION    =======    
+validation: 461.0, 0.579874213836
+class: [14.0, 21.0, 26.0, 3.0, 14.0, 15.0, 37.0, 12.0, 5.0, 15.0, 13.0, 22.0, 18.0, 15.0, 0.0, 7.0, 27.0, 21.0, 18.0, 32.0, 8.0, 14.0, 13.0, 12.0, 16.0, 5.0, 23.0, 3.0, 9.0, 16.0, 7.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 110, lr: 0.00924714709232, lambda: 0.0549446086892
+correct: 84.0, C_loss: 0.547412931919, G_loss:-0.102338127792, D_loss:0.116775989532, Gregloss: 0.0663777291775, Dregloss: 0.0144378645346, semantic_loss: 0.84968817234, F_loss: 0.654853463173
+Avg accuracy till now is 0.84
+
+
+epoch: 120, lr: 0.00918515486359, lambda: 0.0599281035291
+correct: 80.0, C_loss: 0.507102251053, G_loss:-0.10545501858, D_loss:0.11989235878, Gregloss: 0.0664099901915, Dregloss: 0.0144373383373, semantic_loss: 0.775106847286, F_loss: 0.613643229008
+Avg accuracy till now is 0.8
+
+
+epoch: 130, lr: 0.00912412375904, lambda: 0.0649086127746
+correct: 87.0, C_loss: 0.39426651597, G_loss:-0.104200460017, D_loss:0.118636190891, Gregloss: 0.0664432495832, Dregloss: 0.0144357308745, semantic_loss: 0.916897535324, F_loss: 0.513460755348
+Avg accuracy till now is 0.87
+
+
+epoch: 140, lr: 0.00906403056806, lambda: 0.0698858903164
+correct: 93.0, C_loss: 0.274474769831, G_loss:-0.106351308525, D_loss:0.120781756938, Gregloss: 0.0664748698473, Dregloss: 0.0144304465503, semantic_loss: 0.983568966389, F_loss: 0.402254790068
+Avg accuracy till now is 0.93
+
+
+epoch: 150, lr: 0.00900485283775, lambda: 0.0748596906875
+correct: 90.0, C_loss: 0.349985718727, G_loss:-0.106814481318, D_loss:0.121240705252, Gregloss: 0.0665040612221, Dregloss: 0.0144262220711, semantic_loss: 0.92705309391, F_loss: 0.477892577648
+Avg accuracy till now is 0.9
+
+
+epoch: 160, lr: 0.00894656884184, lambda: 0.0798297691111
+correct: 91.0, C_loss: 0.272331625223, G_loss:-0.105123929679, D_loss:0.119544535875, Gregloss: 0.0665304213762, Dregloss: 0.014420603402, semantic_loss: 0.902088344097, F_loss: 0.402483552694
+Avg accuracy till now is 0.91
+
+
+epoch: 170, lr: 0.00888915755116, lambda: 0.0847958815487
+correct: 96.0, C_loss: 0.187711656094, G_loss:-0.108519747853, D_loss:0.122935511172, Gregloss: 0.0665549486876, Dregloss: 0.0144157642499, semantic_loss: 1.01219046116, F_loss: 0.330894172192
+Avg accuracy till now is 0.96
+
+
+epoch: 180, lr: 0.00883259860556, lambda: 0.0897577847472
+correct: 98.0, C_loss: 0.200493887067, G_loss:-0.121392667294, D_loss:0.135804668069, Gregloss: 0.066579811275, Dregloss: 0.0144119951874, semantic_loss: 0.837174355984, F_loss: 0.331320673227
+Avg accuracy till now is 0.98
+
+
+epoch: 190, lr: 0.00877687228717, lambda: 0.0947152362862
+correct: 90.0, C_loss: 0.342530161142, G_loss:-0.116130709648, D_loss:0.130538910627, Gregloss: 0.0666048154235, Dregloss: 0.0144081991166, semantic_loss: 0.877813756466, F_loss: 0.48127797246
+Avg accuracy till now is 0.9
+
+
+epoch: 200, lr: 0.00872195949493, lambda: 0.099667994625
+correct: 91.0, C_loss: 0.268130004406, G_loss:-0.122834935784, D_loss:0.137239515781, Gregloss: 0.0666281282902, Dregloss: 0.014404582791, semantic_loss: 0.792161226273, F_loss: 0.401468545198
+Avg accuracy till now is 0.91
+
+
+    =======    START VALIDATION    =======    
+validation: 492.0, 0.618867924528
+class: [27.0, 20.0, 24.0, 4.0, 14.0, 15.0, 39.0, 15.0, 1.0, 15.0, 17.0, 19.0, 21.0, 15.0, 1.0, 10.0, 24.0, 21.0, 11.0, 32.0, 12.0, 12.0, 11.0, 11.0, 38.0, 4.0, 23.0, 4.0, 13.0, 18.0, 1.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 210, lr: 0.00866784172041, lambda: 0.104615819149
+correct: 91.0, C_loss: 0.318690776825, G_loss:-0.108063079417, D_loss:0.122465752065, Gregloss: 0.0666501894593, Dregloss: 0.0144026707858, semantic_loss: 0.854033887386, F_loss: 0.463381320238
+Avg accuracy till now is 0.91
+
+
+epoch: 220, lr: 0.00861450102465, lambda: 0.109558470214
+correct: 91.0, C_loss: 0.228654041886, G_loss:-0.105895496905, D_loss:0.120296448469, Gregloss: 0.0666691660881, Dregloss: 0.0144009515643, semantic_loss: 0.751860797405, F_loss: 0.366094172001
+Avg accuracy till now is 0.91
+
+
+epoch: 230, lr: 0.00856192001616, lambda: 0.114495709197
+correct: 94.0, C_loss: 0.187563478947, G_loss:-0.104997448623, D_loss:0.119396686554, Gregloss: 0.0666880309582, Dregloss: 0.0143992379308, semantic_loss: 0.757924377918, F_loss: 0.329008847475
+Avg accuracy till now is 0.94
+
+
+epoch: 240, lr: 0.00851008182997, lambda: 0.119427298534
+correct: 96.0, C_loss: 0.189629748464, G_loss:-0.101448230445, D_loss:0.115848094225, Gregloss: 0.0667071342468, Dregloss: 0.0143998600543, semantic_loss: 0.740015685558, F_loss: 0.332599252462
+Avg accuracy till now is 0.96
+
+
+epoch: 250, lr: 0.00845897010752, lambda: 0.124353001772
+correct: 97.0, C_loss: 0.159202843904, G_loss:-0.10540869087, D_loss:0.119807362556, Gregloss: 0.0667240396142, Dregloss: 0.014398672618, semantic_loss: 0.777128279209, F_loss: 0.309457242489
+Avg accuracy till now is 0.97
+
+
+epoch: 260, lr: 0.00840856897765, lambda: 0.129272583606
+correct: 97.0, C_loss: 0.129277303815, G_loss:-0.102102555335, D_loss:0.116502761841, Gregloss: 0.066739782691, Dregloss: 0.0144002065063, semantic_loss: 0.871877968311, F_loss: 0.295527935028
+Avg accuracy till now is 0.97
+
+
+epoch: 270, lr: 0.00835886303827, lambda: 0.134185809931
+correct: 99.0, C_loss: 0.0707621872425, G_loss:-0.0859956741333, D_loss:0.100396990776, Gregloss: 0.0667541027069, Dregloss: 0.0144013175741, semantic_loss: 0.744317948818, F_loss: 0.225853800774
+Avg accuracy till now is 0.99
+
+
+epoch: 280, lr: 0.00830983733898, lambda: 0.139092447878
+correct: 95.0, C_loss: 0.124472111464, G_loss:-0.0959043204784, D_loss:0.110306292772, Gregloss: 0.0667681694031, Dregloss: 0.0144019732252, semantic_loss: 0.742203950882, F_loss: 0.281135678291
+Avg accuracy till now is 0.95
+
+
+epoch: 290, lr: 0.00826147736439, lambda: 0.143992265863
+correct: 97.0, C_loss: 0.123761825264, G_loss:-0.0923809483647, D_loss:0.106782764196, Gregloss: 0.0667815953493, Dregloss: 0.0144018158317, semantic_loss: 0.748987793922, F_loss: 0.285089701414
+Avg accuracy till now is 0.97
+
+
+epoch: 300, lr: 0.00821376901825, lambda: 0.148885033623
+correct: 97.0, C_loss: 0.103468731046, G_loss:-0.0861469060183, D_loss:0.100548006594, Gregloss: 0.0667946487665, Dregloss: 0.0144011024386, semantic_loss: 0.769619584084, F_loss: 0.272022247314
+Avg accuracy till now is 0.97
+
+
+    =======    START VALIDATION    =======    
+validation: 496.0, 0.623899371069
+class: [23.0, 20.0, 25.0, 4.0, 13.0, 11.0, 38.0, 16.0, 1.0, 15.0, 21.0, 23.0, 21.0, 15.0, 1.0, 11.0, 24.0, 22.0, 15.0, 32.0, 12.0, 16.0, 15.0, 18.0, 16.0, 6.0, 22.0, 4.0, 14.0, 15.0, 7.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 310, lr: 0.00816669860821, lambda: 0.153770522264
+correct: 97.0, C_loss: 0.11069445312, G_loss:-0.0939991027117, D_loss:0.10839946568, Gregloss: 0.0668059065938, Dregloss: 0.0144003592432, semantic_loss: 0.717029809952, F_loss: 0.273304134607
+Avg accuracy till now is 0.97
+
+
+epoch: 320, lr: 0.00812025283127, lambda: 0.158648504297
+correct: 97.0, C_loss: 0.115568697453, G_loss:-0.11066557467, D_loss:0.125064983964, Gregloss: 0.0668158456683, Dregloss: 0.0143994037062, semantic_loss: 0.623056352139, F_loss: 0.263674557209
+Avg accuracy till now is 0.97
+
+
+epoch: 330, lr: 0.00807441875989, lambda: 0.163518753684
+correct: 94.0, C_loss: 0.144797027111, G_loss:-0.0958724245429, D_loss:0.110269740224, Gregloss: 0.0668261423707, Dregloss: 0.0143973194063, semantic_loss: 0.709428429604, F_loss: 0.311951071024
+Avg accuracy till now is 0.94
+
+
+epoch: 340, lr: 0.00802918382862, lambda: 0.168381045871
+correct: 95.0, C_loss: 0.179968222976, G_loss:-0.105912066996, D_loss:0.120307080448, Gregloss: 0.0668356120586, Dregloss: 0.0143950143829, semantic_loss: 0.624166309834, F_loss: 0.334068030119
+Avg accuracy till now is 0.95
+
+
+epoch: 350, lr: 0.0079845358214, lambda: 0.173235157835
+correct: 94.0, C_loss: 0.148364976048, G_loss:-0.117533639073, D_loss:0.131927505136, Gregloss: 0.066844061017, Dregloss: 0.0143938707188, semantic_loss: 0.70137155056, F_loss: 0.316350281239
+Avg accuracy till now is 0.94
+
+
+epoch: 360, lr: 0.00794046285931, lambda: 0.178080868117
+correct: 97.0, C_loss: 0.0707240328193, G_loss:-0.103923797607, D_loss:0.118314877152, Gregloss: 0.0668508037925, Dregloss: 0.0143910758197, semantic_loss: 0.647116720676, F_loss: 0.23430711031
+Avg accuracy till now is 0.97
+
+
+epoch: 370, lr: 0.00789695338887, lambda: 0.182917956866
+correct: 96.0, C_loss: 0.10699442029, G_loss:-0.10176410526, D_loss:0.116154201329, Gregloss: 0.0668581426144, Dregloss: 0.0143900942057, semantic_loss: 0.598995685577, F_loss: 0.264805138111
+Avg accuracy till now is 0.96
+
+
+epoch: 380, lr: 0.00785399617087, lambda: 0.187746205868
+correct: 97.0, C_loss: 0.0860156044364, G_loss:-0.100851021707, D_loss:0.115239344537, Gregloss: 0.0668666735291, Dregloss: 0.0143883246928, semantic_loss: 0.56851786375, F_loss: 0.240684956312
+Avg accuracy till now is 0.97
+
+
+epoch: 390, lr: 0.00781158026957, lambda: 0.192565398594
+correct: 97.0, C_loss: 0.11632707715, G_loss:-0.101638555527, D_loss:0.116024933755, Gregloss: 0.0668744072318, Dregloss: 0.0143863754347, semantic_loss: 0.646136760712, F_loss: 0.288053005934
+Avg accuracy till now is 0.97
+
+
+epoch: 400, lr: 0.00776969504241, lambda: 0.197375320225
+correct: 97.0, C_loss: 0.0698552280664, G_loss:-0.102096915245, D_loss:0.11648336798, Gregloss: 0.066880621016, Dregloss: 0.0143864508718, semantic_loss: 0.501516878605, F_loss: 0.21557149291
+Avg accuracy till now is 0.97
+
+
+    =======    START VALIDATION    =======    
+validation: 533.0, 0.670440251572
+class: [27.0, 20.0, 25.0, 6.0, 16.0, 15.0, 39.0, 16.0, 6.0, 15.0, 19.0, 25.0, 23.0, 16.0, 3.0, 12.0, 26.0, 21.0, 21.0, 28.0, 12.0, 14.0, 16.0, 16.0, 29.0, 4.0, 23.0, 3.0, 13.0, 17.0, 7.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 410, lr: 0.00772833013014, lambda: 0.202175757697
+correct: 96.0, C_loss: 0.0738562643528, G_loss:-0.101389221847, D_loss:0.115773588419, Gregloss: 0.0668869912624, Dregloss: 0.0143843693659, semantic_loss: 0.631979882717, F_loss: 0.24801582098
+Avg accuracy till now is 0.96
+
+
+epoch: 420, lr: 0.00768747544733, lambda: 0.206966499729
+correct: 100.0, C_loss: 0.0345110595226, G_loss:-0.0983569249511, D_loss:0.112739048898, Gregloss: 0.0668919458985, Dregloss: 0.0143821267411, semantic_loss: 0.572382688522, F_loss: 0.199510455132
+Avg accuracy till now is 1.0
+
+
+epoch: 430, lr: 0.00764712117324, lambda: 0.211747336864
+correct: 96.0, C_loss: 0.0921507105231, G_loss:-0.0975523218513, D_loss:0.111932963133, Gregloss: 0.0668981149793, Dregloss: 0.0143806412816, semantic_loss: 0.52580332756, F_loss: 0.249729841948
+Avg accuracy till now is 0.96
+
+
+epoch: 440, lr: 0.00760725774313, lambda: 0.216518061493
+correct: 99.0, C_loss: 0.0452774763107, G_loss:-0.0989446640015, D_loss:0.113324925303, Gregloss: 0.0669038519263, Dregloss: 0.0143802594393, semantic_loss: 0.499931812286, F_loss: 0.199002295732
+Avg accuracy till now is 0.99
+
+
+epoch: 450, lr: 0.00756787583981, lambda: 0.221278467898
+correct: 97.0, C_loss: 0.086606271565, G_loss:-0.10891635716, D_loss:0.123293235898, Gregloss: 0.0669090971351, Dregloss: 0.0143768759444, semantic_loss: 0.534947156906, F_loss: 0.247786819935
+Avg accuracy till now is 0.97
+
+
+epoch: 460, lr: 0.00752896638562, lambda: 0.226028352279
+correct: 98.0, C_loss: 0.0767760574818, G_loss:-0.107682660222, D_loss:0.122057080269, Gregloss: 0.0669132322073, Dregloss: 0.0143744209781, semantic_loss: 0.515572428703, F_loss: 0.235883951187
+Avg accuracy till now is 0.98
+
+
+epoch: 470, lr: 0.00749052053468, lambda: 0.230767512782
+correct: 99.0, C_loss: 0.05093331635, G_loss:-0.106276653707, D_loss:0.120649136603, Gregloss: 0.0669169574976, Dregloss: 0.0143724810332, semantic_loss: 0.482227057219, F_loss: 0.20460742712
+Avg accuracy till now is 0.99
+
+
+epoch: 480, lr: 0.00745252966542, lambda: 0.235495749538
+correct: 99.0, C_loss: 0.053445532918, G_loss:-0.096908994019, D_loss:0.111279316247, Gregloss: 0.0669220983982, Dregloss: 0.0143703240901, semantic_loss: 0.461097717285, F_loss: 0.206132531166
+Avg accuracy till now is 0.99
+
+
+epoch: 490, lr: 0.00741498537345, lambda: 0.240212864686
+correct: 98.0, C_loss: 0.0599989555776, G_loss:-0.0988750383258, D_loss:0.113243341446, Gregloss: 0.0669275149703, Dregloss: 0.0143683049828, semantic_loss: 0.571766972542, F_loss: 0.240521192551
+Avg accuracy till now is 0.98
+
+
+epoch: 500, lr: 0.00737787946467, lambda: 0.244918662404
+correct: 99.0, C_loss: 0.0631429255009, G_loss:-0.114532724023, D_loss:0.128898084164, Gregloss: 0.0669317394495, Dregloss: 0.0143653666601, semantic_loss: 0.464801847935, F_loss: 0.215862110257
+Avg accuracy till now is 0.99
+
+
+    =======    START VALIDATION    =======    
+validation: 550.0, 0.691823899371
+class: [26.0, 20.0, 26.0, 7.0, 16.0, 16.0, 39.0, 16.0, 4.0, 14.0, 26.0, 25.0, 20.0, 15.0, 5.0, 13.0, 27.0, 21.0, 21.0, 31.0, 14.0, 15.0, 19.0, 22.0, 25.0, 3.0, 21.0, 7.0, 12.0, 16.0, 8.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 510, lr: 0.00734120394863, lambda: 0.249612948937
+correct: 97.0, C_loss: 0.0747198015451, G_loss:-0.107316091657, D_loss:0.1216802001, Gregloss: 0.0669354647398, Dregloss: 0.0143641121686, semantic_loss: 0.402197927237, F_loss: 0.21526157856
+Avg accuracy till now is 0.97
+
+
+epoch: 520, lr: 0.00730495103218, lambda: 0.254295532626
+correct: 97.0, C_loss: 0.110780231655, G_loss:-0.104510985315, D_loss:0.118873119354, Gregloss: 0.0669394657016, Dregloss: 0.0143621321768, semantic_loss: 0.402540713549, F_loss: 0.253507316113
+Avg accuracy till now is 0.97
+
+
+epoch: 530, lr: 0.00726911311334, lambda: 0.258966223935
+correct: 96.0, C_loss: 0.0909638032317, G_loss:-0.116248346865, D_loss:0.130608052015, Gregloss: 0.066942922771, Dregloss: 0.0143596986309, semantic_loss: 0.397134572268, F_loss: 0.230646774173
+Avg accuracy till now is 0.96
+
+
+epoch: 540, lr: 0.0072336827754, lambda: 0.263624835472
+correct: 99.0, C_loss: 0.0349372960627, G_loss:-0.110635116696, D_loss:0.124991826713, Gregloss: 0.0669462606311, Dregloss: 0.0143567081541, semantic_loss: 0.432453870773, F_loss: 0.186722993851
+Avg accuracy till now is 0.99
+
+
+epoch: 550, lr: 0.00719865278123, lambda: 0.268271182022
+correct: 98.0, C_loss: 0.0833400189877, G_loss:-0.122231982648, D_loss:0.136586427689, Gregloss: 0.0669488161802, Dregloss: 0.014354438521, semantic_loss: 0.431470662355, F_loss: 0.233248651028
+Avg accuracy till now is 0.98
+
+
+epoch: 560, lr: 0.00716401606779, lambda: 0.272905080563
+correct: 100.0, C_loss: 0.0163662433624, G_loss:-0.110971726477, D_loss:0.125323951244, Gregloss: 0.0669514909387, Dregloss: 0.0143522294238, semantic_loss: 0.431503653526, F_loss: 0.170792520046
+Avg accuracy till now is 1.0
+
+
+epoch: 570, lr: 0.00712976574091, lambda: 0.277526350298
+correct: 97.0, C_loss: 0.0885706320405, G_loss:-0.107716299593, D_loss:0.12206671387, Gregloss: 0.066953830421, Dregloss: 0.0143504114822, semantic_loss: 0.424004554749, F_loss: 0.243302792311
+Avg accuracy till now is 0.97
+
+
+epoch: 580, lr: 0.00709589507015, lambda: 0.28213481267
+correct: 99.0, C_loss: 0.0376554578543, G_loss:-0.109139852226, D_loss:0.1234883219, Gregloss: 0.0669558793306, Dregloss: 0.0143484687433, semantic_loss: 0.361688166857, F_loss: 0.175864011049
+Avg accuracy till now is 0.99
+
+
+epoch: 590, lr: 0.00706239748395, lambda: 0.286730291389
+correct: 99.0, C_loss: 0.0459514558315, G_loss:-0.124721623957, D_loss:0.139068245888, Gregloss: 0.0669592395425, Dregloss: 0.0143466284499, semantic_loss: 0.366746455431, F_loss: 0.182306542993
+Avg accuracy till now is 0.99
+
+
+epoch: 600, lr: 0.00702926656488, lambda: 0.291312612452
+correct: 99.0, C_loss: 0.0553531683981, G_loss:-0.117485575378, D_loss:0.131829112768, Gregloss: 0.066962711513, Dregloss: 0.0143435429782, semantic_loss: 0.360786229372, F_loss: 0.19319242239
+Avg accuracy till now is 0.99
+
+
+    =======    START VALIDATION    =======    
+validation: 559.0, 0.703144654088
+class: [29.0, 21.0, 24.0, 9.0, 16.0, 16.0, 40.0, 16.0, 6.0, 15.0, 25.0, 22.0, 24.0, 15.0, 7.0, 15.0, 25.0, 20.0, 22.0, 27.0, 14.0, 16.0, 17.0, 19.0, 25.0, 6.0, 24.0, 5.0, 13.0, 18.0, 8.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 610, lr: 0.00699649604511, lambda: 0.295881604161
+correct: 100.0, C_loss: 0.0230525359511, G_loss:-0.107405520976, D_loss:0.121746733785, Gregloss: 0.0669663250446, Dregloss: 0.0143412156031, semantic_loss: 0.348114937544, F_loss: 0.161240339279
+Avg accuracy till now is 1.0
+
+
+epoch: 620, lr: 0.00696407980201, lambda: 0.300437097148
+correct: 99.0, C_loss: 0.0411559902132, G_loss:-0.108155027032, D_loss:0.122493460774, Gregloss: 0.0669693350792, Dregloss: 0.0143384328112, semantic_loss: 0.374699115753, F_loss: 0.188205063343
+Avg accuracy till now is 0.99
+
+
+epoch: 630, lr: 0.00693201185392, lambda: 0.304978924385
+correct: 99.0, C_loss: 0.0391380898654, G_loss:-0.108140803874, D_loss:0.122476145625, Gregloss: 0.0669717043638, Dregloss: 0.0143353380263, semantic_loss: 0.359707593918, F_loss: 0.182832375169
+Avg accuracy till now is 0.99
+
+
+epoch: 640, lr: 0.00690028635604, lambda: 0.309506921213
+correct: 100.0, C_loss: 0.0378587022424, G_loss:-0.122580327094, D_loss:0.136912852526, Gregloss: 0.0669738054276, Dregloss: 0.0143325319514, semantic_loss: 0.372714787722, F_loss: 0.182250857353
+Avg accuracy till now is 1.0
+
+
+epoch: 650, lr: 0.00686889759653, lambda: 0.314020925347
+correct: 99.0, C_loss: 0.0431661270559, G_loss:-0.119834899902, D_loss:0.134164065123, Gregloss: 0.0669756531715, Dregloss: 0.0143291661516, semantic_loss: 0.306343376637, F_loss: 0.168709352612
+Avg accuracy till now is 0.99
+
+
+epoch: 660, lr: 0.00683783999268, lambda: 0.318520776903
+correct: 99.0, C_loss: 0.0374518856406, G_loss:-0.118635252118, D_loss:0.132962048054, Gregloss: 0.06697717309, Dregloss: 0.0143267977983, semantic_loss: 0.347309648991, F_loss: 0.177266597748
+Avg accuracy till now is 0.99
+
+
+epoch: 670, lr: 0.00680710808721, lambda: 0.323006318406
+correct: 99.0, C_loss: 0.053051866591, G_loss:-0.11830624193, D_loss:0.132630974054, Gregloss: 0.0669788643718, Dregloss: 0.0143247283995, semantic_loss: 0.317612051964, F_loss: 0.184407770634
+Avg accuracy till now is 0.99
+
+
+epoch: 680, lr: 0.00677669654479, lambda: 0.327477394809
+correct: 99.0, C_loss: 0.0436529107392, G_loss:-0.120969109237, D_loss:0.13529124856, Gregloss: 0.0669809952378, Dregloss: 0.0143221346661, semantic_loss: 0.344071924686, F_loss: 0.183695048094
+Avg accuracy till now is 0.99
+
+
+epoch: 690, lr: 0.00674660014852, lambda: 0.331933853504
+correct: 100.0, C_loss: 0.0459281653166, G_loss:-0.114131830633, D_loss:0.128451600671, Gregloss: 0.0669830515981, Dregloss: 0.0143197719008, semantic_loss: 0.28017154336, F_loss: 0.168025419116
+Avg accuracy till now is 1.0
+
+
+epoch: 700, lr: 0.00671681379668, lambda: 0.336375544336
+correct: 100.0, C_loss: 0.030940471217, G_loss:-0.11850156635, D_loss:0.13281942904, Gregloss: 0.0669857859612, Dregloss: 0.0143178664148, semantic_loss: 0.308049947023, F_loss: 0.161685690284
+Avg accuracy till now is 1.0
+
+
+    =======    START VALIDATION    =======    
+validation: 566.0, 0.711949685535
+class: [29.0, 21.0, 25.0, 8.0, 15.0, 17.0, 39.0, 16.0, 2.0, 16.0, 25.0, 22.0, 27.0, 16.0, 8.0, 17.0, 25.0, 20.0, 22.0, 29.0, 13.0, 15.0, 18.0, 20.0, 24.0, 6.0, 24.0, 7.0, 12.0, 19.0, 9.0]
+class: [29.0, 21.0, 28.0, 12.0, 16.0, 31.0, 40.0, 18.0, 21.0, 19.0, 27.0, 27.0, 30.0, 19.0, 30.0, 43.0, 30.0, 27.0, 28.0, 32.0, 16.0, 20.0, 30.0, 27.0, 40.0, 11.0, 25.0, 30.0, 24.0, 23.0, 21.0]
+source: amazon, target: webcam, batch_size: 100, init_lr: 0.01
+lr_mult: [0.1, 0.2, 1, 2], lr_mult_D: [1, 2]
+    =======    START TRAINING    =======    
+epoch: 710, lr: 0.00668733249952, lambda: 0.340802319618
+correct: 100.0, C_loss: 0.0342206656933, G_loss:-0.123815670609, D_loss:0.13813097775, Gregloss: 0.0669881254435, Dregloss: 0.0143153080717, semantic_loss: 0.296229213476, F_loss: 0.159967720509
+Avg accuracy till now is 1.0
+
+
+epoch: 720, lr: 0.00665815137616, lambda: 0.345214034136
+correct: 100.0, C_loss: 0.0350768454373, G_loss:-0.115009918809, D_loss:0.129321739078, Gregloss: 0.0669902488589, Dregloss: 0.0143118202686, semantic_loss: 0.319549918175, F_loss: 0.172677174211
+Avg accuracy till now is 1.0
+
+

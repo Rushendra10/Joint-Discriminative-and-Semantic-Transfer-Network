@@ -90,9 +90,21 @@ else:
     # model.load_state_dict(utils.load_pretrain_npy(), strict=False)
     epoch = 0
 
+
+
 output('    =======    START TRAINING    =======    ')
-for epoch in range(epoch, 100000):
+for epoch in range(epoch, 10000):
+
+
+
     model.train()
+
+    sum=0
+    cnt=0
+
+
+	
+    
     lamb = adaptation_factor(epoch * 1.0 / max_epoch)
     current_lr, _ = lr_schedule(opt, epoch, lr_mult), lr_schedule(opt_D, epoch, lr_mult_D)
 
@@ -133,11 +145,16 @@ for epoch in range(epoch, 100000):
         s_correct = torch.sum(torch.eq(s_pred_label, ys).float())
         s_acc = torch.div(s_correct, ys.size(0))
 
+        sum+=s_correct.item()
+        cnt+=1
+
         output('epoch: {}, lr: {}, lambda: {}'.format(epoch, current_lr, lamb))
         if da:
             output('correct: {}, C_loss: {}, G_loss:{}, D_loss:{}, Gregloss: {}, Dregloss: {}, semantic_loss: {}, F_loss: {}'.format(
                 s_correct.item(), C_loss.item(), G_loss.item(), D_loss.item(),
                 Gregloss.item(), Dregloss.item(), semantic_loss.item(), F_loss.item()))
+            #print("Avg accuracy till now is " + str(sum/100))
+            #print('\n')
         else:
             output('correct: {}, C_loss: {}'.format(s_correct.item(), C_loss.item()))
 
@@ -161,6 +178,7 @@ for epoch in range(epoch, 100000):
             v_correct += torch.sum(v_equal).item()
             v_sum += len(yv)
         v_acc = v_correct / v_sum
+        print("\nValidation accuracy is " + str(v_acc) + "\n")
         output('validation: {}, {}'.format(v_correct, v_acc, zeros))
         output('class: {}'.format(zeros.tolist()))
         output('class: {}'.format(zeros_classes.tolist()))
@@ -169,12 +187,12 @@ for epoch in range(epoch, 100000):
         output('    =======    START TRAINING    =======    ')
 
     # save model
-    if epoch % 1000 == 0 and epoch != 0:
-        torch.save({
-            'epoch': epoch + 1,
-            'model': model.state_dict(),
-            'opt': opt.state_dict(),
-            'opt_D': opt_D.state_dict()
-        })
+    #if epoch % 1000 == 0 and epoch != 0:
+        #torch.save({
+            #'epoch': epoch + 1,
+            #'model': model.state_dict(),
+            #'opt': opt.state_dict(),
+            #'opt_D': opt_D.state_dict()
+        #})
 
     epoch += 1
