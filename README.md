@@ -34,7 +34,6 @@ The model integrates various loss functions to balance semantic alignment and fe
 - **Semantic Alignment**: Ensures feature similarity across domains for the same class.
 - **Discriminative Features**: Reduces intra-class variance and increases inter-class variance for robust classification.
 - **Flexible Framework**: Extensible to various domain adaptation scenarios and datasets.
-- 
 ---
 
 ## Architecture
